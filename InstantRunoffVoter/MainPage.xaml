@@ -50,13 +50,13 @@
             <!--Pivot item one-->
             <phone:PivotItem Header="Voters">
                 <!--Double line list with text wrapping-->
-                <toolkit:LongListMultiSelector Margin="0,14,-12,0" ItemsSource="{Binding Items}" ItemTemplate="{StaticResource MultiSelectItemTemplate}"/>
+                <toolkit:LongListMultiSelector Margin="0,14,-12,0" ItemsSource="{Binding Voters}" ItemTemplate="{StaticResource MultiSelectItemTemplate}"/>
             </phone:PivotItem>
 
             <!--Pivot item two-->
             <phone:PivotItem Header="Candidates">
                 <!--Double line list no text wrapping-->
-                <toolkit:LongListMultiSelector Margin="0,14,-12,0" ItemsSource="{Binding Items}" ItemTemplate="{StaticResource MultiSelectItemTemplate}"/>
+                <toolkit:LongListMultiSelector Margin="0,14,-12,0" ItemsSource="{Binding Candidates}" ItemTemplate="{StaticResource MultiSelectItemTemplate}"/>
             </phone:PivotItem>
         </phone:Pivot>
 
@@ -71,8 +71,8 @@
     
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
-            <shell:ApplicationBarIconButton IconUri="/Assets/Icons/Dark/add.png" Text="add"/>
-            <shell:ApplicationBarIconButton IconUri="/Assets/Icons/Dark/check.png" Text="vote" IsEnabled="True"/>
+            <shell:ApplicationBarIconButton x:Name="ButtonAdd" IconUri="/Assets/Icons/Dark/add.png" Text="add" Click="ButtonAdd_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/Icons/Dark/check.png" Text="vote" IsEnabled="False"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

@@ -34,6 +34,14 @@ namespace InstantRunoffVoter
             }
         }
 
+        /// <summary>
+        /// Called when the add button is clicked on either the voters or candidates pivot.
+        /// </summary>
+        private void ButtonAdd_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/TextEntryPage.xaml", UriKind.Relative));
+        }
+
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{
