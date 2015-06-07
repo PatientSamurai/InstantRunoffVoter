@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using InstantRunoffVoter.Resources;
+using InstantRunoffVoter.Views;
 
 namespace InstantRunoffVoter
 {
@@ -39,7 +40,15 @@ namespace InstantRunoffVoter
         /// </summary>
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/TextEntryPage.xaml", UriKind.Relative));
+            string target = ElementProperties.GetViewModelTarget((UIElement)this.MainPagePivot.SelectedItem);
+            string title = ElementProperties.GetTextCollectionString((UIElement)this.MainPagePivot.SelectedItem);
+
+            NavigationService.Navigate(new Uri(string.Format(
+                "/TextEntryPage.xaml?{0}={1}&{2}={3}",
+                TextEntryPage.TextTargetQueryStringKey,
+                target,
+                TextEntryPage.PageTitleQueryStringKey,
+                HttpUtility.UrlEncode(title)), UriKind.Relative));
         }
 
         // Sample code for building a localized ApplicationBar

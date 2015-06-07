@@ -7,6 +7,26 @@ namespace InstantRunoffVoter.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Constant value indicating the the voters collection target.
+        /// </summary>
+        public const string VotersTargetConstant = "voters";
+
+        /// <summary>
+        /// Constant value indicating the the candidates collection target.
+        /// </summary>
+        public const string CandidatesTargetConstant = "candidates";
+
+        /// <summary>
+        /// Property for exposing VotersTargetConstant.
+        /// </summary>
+        public static string VotersTarget { get { return MainViewModel.VotersTargetConstant; } }
+
+        /// <summary>
+        /// Property for exposing CandidatesTargetConstant.
+        /// </summary>
+        public static string CandidatesTarget { get { return MainViewModel.CandidatesTargetConstant; } }
+
         public MainViewModel()
         {
             this.Voters = new ObservableCollection<ItemViewModel>();
@@ -85,6 +105,23 @@ namespace InstantRunoffVoter.ViewModels
             this.Candidates.Add(new ItemViewModel() { LineOne = "Spy Party" });
 
             this.IsDataLoaded = true;
+        }
+
+        public void AddEntry(string target, string value)
+        {
+            switch (target)
+            {
+                case MainViewModel.VotersTargetConstant:
+                    this.Voters.Add(new ItemViewModel() { LineOne = value });
+                    break;
+
+                case MainViewModel.CandidatesTargetConstant:
+                    this.Candidates.Add(new ItemViewModel() { LineOne = value });
+                    break;
+
+                default:
+                    throw new ArgumentException("target");
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
