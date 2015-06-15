@@ -10,7 +10,7 @@ using Microsoft.Phone.Shell;
 using InstantRunoffVoter.Resources;
 using InstantRunoffVoter.Views;
 
-namespace InstantRunoffVoter
+namespace InstantRunoffVoter.Views
 {
     public partial class MainPage : PhoneApplicationPage
     {

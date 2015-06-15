@@ -1,6 +1,6 @@
 ﻿using InstantRunoffVoter.Resources;
 
-namespace InstantRunoffVoter
+namespace InstantRunoffVoter.Resources
 {
     /// <summary>
     /// Provides access to string resources.

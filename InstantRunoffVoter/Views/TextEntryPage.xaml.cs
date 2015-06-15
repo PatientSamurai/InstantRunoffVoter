@@ -5,7 +5,7 @@ using System;
 using System.Windows.Input;
 using System.Windows.Navigation;
 
-namespace InstantRunoffVoter
+namespace InstantRunoffVoter.Views
 {
     /// <summary>
     /// Code-behind class for the simple text entry page.
