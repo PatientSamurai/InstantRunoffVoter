@@ -109,6 +109,7 @@
     <Compile Include="Views\TextEntryPage.xaml.cs">
       <DependentUpon>TextEntryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Voting\Election.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
