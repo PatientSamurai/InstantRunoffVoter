@@ -44,7 +44,7 @@ namespace InstantRunoffVoter.Views
             string title = ElementProperties.GetTextCollectionString((UIElement)this.MainPagePivot.SelectedItem);
 
             NavigationService.Navigate(new Uri(string.Format(
-                "/TextEntryPage.xaml?{0}={1}&{2}={3}",
+                "/Views/TextEntryPage.xaml?{0}={1}&{2}={3}",
                 TextEntryPage.TextTargetQueryStringKey,
                 target,
                 TextEntryPage.PageTitleQueryStringKey,
