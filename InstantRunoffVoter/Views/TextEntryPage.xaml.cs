@@ -23,7 +23,7 @@ namespace InstantRunoffVoter.Views
         public const string PageTitleQueryStringKey = "PageTitle";
 
         /// <summary>
-        /// The local reference the the save button which was added to the application bar during initialization.
+        /// The local reference of the save button which was added to the application bar during initialization.
         /// </summary>
         private readonly ApplicationBarIconButton buttonSave;
 
@@ -45,14 +45,14 @@ namespace InstantRunoffVoter.Views
                 IsEnabled = false,
             };
 
-            this.buttonSave.Click += this.ButtonSave_Click;
-
             this.ApplicationBar.Buttons.Add(this.buttonSave);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+            this.buttonSave.Click += this.ButtonSave_Click;
 
             if (!NavigationContext.QueryString.TryGetValue(TextEntryPage.TextTargetQueryStringKey, out this.target))
             {

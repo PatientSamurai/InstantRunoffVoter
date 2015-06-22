@@ -57,9 +57,10 @@
                              views:ElementProperties.TextCollectionString="{Binding Path=LocalizedResources.VoterEntryTitle, Source={StaticResource LocalizedStrings}}">
                 <!--Double line list with text wrapping-->
                 <toolkit:LongListMultiSelector
+                    x:Name="VotersList"
                     Margin="0,14,-12,0"
                     ItemsSource="{Binding Voters}"
-                    ItemTemplate="{StaticResource MultiSelectItemTemplate}"/>
+                    ItemTemplate="{StaticResource MultiSelectItemTemplate}" SelectionChanged="VotersList_SelectionChanged"/>
             </phone:PivotItem>
 
             <!--Pivot item two-->
@@ -68,9 +69,10 @@
                              views:ElementProperties.TextCollectionString="{Binding Path=LocalizedResources.CandidateEntryTitle, Source={StaticResource LocalizedStrings}}">
                 <!--Double line list no text wrapping-->
                 <toolkit:LongListMultiSelector
+                    x:Name="CandidatesList"
                     Margin="0,14,-12,0"
                     ItemsSource="{Binding Candidates}"
-                    ItemTemplate="{StaticResource MultiSelectItemTemplate}"/>
+                    ItemTemplate="{StaticResource MultiSelectItemTemplate}" SelectionChanged="CandidatesList_SelectionChanged"/>
             </phone:PivotItem>
         </phone:Pivot>
 
@@ -86,7 +88,7 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
             <shell:ApplicationBarIconButton x:Name="ButtonAdd" IconUri="/Assets/Icons/Dark/add.png" Text="add" Click="ButtonAdd_Click"/>
-            <shell:ApplicationBarIconButton IconUri="/Assets/Icons/Dark/check.png" Text="vote" IsEnabled="False"/>
+            <!-- shell:ApplicationBarIconButton IconUri="/Assets/Icons/Dark/check.png" Text="vote" IsEnabled="False"/ -->
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

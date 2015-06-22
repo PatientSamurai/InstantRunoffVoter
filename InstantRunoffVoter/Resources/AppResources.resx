@@ -149,4 +149,7 @@
     <value>New voter</value>
     <comment>Text displayed as the title when the user is entering in a new voter.</comment>
   </data>
+  <data name="AppBarButtonVoteText" xml:space="preserve">
+    <value>vote</value>
+  </data>
 </root>

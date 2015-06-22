@@ -9,30 +9,69 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using InstantRunoffVoter.Resources;
 using InstantRunoffVoter.Views;
+using InstantRunoffVoter.ViewModels;
 
 namespace InstantRunoffVoter.Views
 {
+    /// <summary>
+    /// Code-behind class for the main page.
+    /// </summary>
     public partial class MainPage : PhoneApplicationPage
     {
-        // Constructor
+        /// <summary>
+        /// The view model this page is bound to.
+        /// </summary>
+        private MainViewModel viewModel;
+
+        /// <summary>
+        /// The local reference of the vote button which was added to the application bar during initialization.
+        /// </summary>
+        private readonly ApplicationBarIconButton buttonStartVote;
+
+        /// <summary>
+        /// Constructs a new instance of the MainPage class.
+        /// </summary>
         public MainPage()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
-            // Set the data context of the listbox control to the sample data
-            DataContext = App.ViewModel;
+            this.viewModel = App.ViewModel;
+            this.DataContext = this.viewModel;
 
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
+            this.buttonStartVote = new ApplicationBarIconButton(new Uri("/Assets/Icons/Dark/check.png", UriKind.Relative))
+            {
+                Text = AppResources.AppBarButtonVoteText,
+                IsEnabled = false,
+            };
+
+            this.ApplicationBar.Buttons.Add(this.buttonStartVote);
         }
 
-        // Load data for the ViewModel Items
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            base.OnNavigatedTo(e);
+
             if (!App.ViewModel.IsDataLoaded)
             {
                 App.ViewModel.LoadData();
             }
+
+            this.buttonStartVote.Click += this.ButtonStartVote_Click;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            this.buttonStartVote.Click -= this.ButtonStartVote_Click;
+        }
+
+        /// <summary>
+        /// Called when the vote button is clicked.
+        /// </summary>
+        private void ButtonStartVote_Click(object sender, EventArgs e)
+        {
+
         }
 
         /// <summary>
@@ -51,20 +90,34 @@ namespace InstantRunoffVoter.Views
                 HttpUtility.UrlEncode(title)), UriKind.Relative));
         }
 
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
+        /// <summary>
+        /// Called when the selection of voters has changed.
+        /// </summary>
+        private void VotersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.viewModel.AddVoters(e.AddedItems.Cast<ItemViewModel>());
+            this.viewModel.RemoveVoters(e.RemovedItems.Cast<ItemViewModel>());
 
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
+            this.EvaluateVoteButtonState();
+        }
 
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
+        /// <summary>
+        /// Called when the selection of candidates has changed.
+        /// </summary>
+        private void CandidatesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.viewModel.AddCandidates(e.AddedItems.Cast<ItemViewModel>());
+            this.viewModel.RemoveCandidates(e.RemovedItems.Cast<ItemViewModel>());
+
+            this.EvaluateVoteButtonState();
+        }
+
+        /// <summary>
+        /// Evaluates and sets the enabled state of the vote button.
+        /// </summary>
+        private void EvaluateVoteButtonState()
+        {
+            this.buttonStartVote.IsEnabled = this.viewModel.CanStartVote();
+        }
     }
 }

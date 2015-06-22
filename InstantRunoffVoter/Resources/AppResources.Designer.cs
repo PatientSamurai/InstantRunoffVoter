@@ -79,6 +79,15 @@ namespace InstantRunoffVoter.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to vote.
+        /// </summary>
+        public static string AppBarButtonVoteText {
+            get {
+                return ResourceManager.GetString("AppBarButtonVoteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Menu Item.
         /// </summary>
         public static string AppBarMenuItemText {
