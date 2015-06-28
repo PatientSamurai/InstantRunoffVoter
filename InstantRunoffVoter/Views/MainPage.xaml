@@ -19,7 +19,7 @@
     <phone:PhoneApplicationPage.Resources>
         <DataTemplate x:Key="MultiSelectItemTemplate">
             <StackPanel Margin="0,-14,0,17">
-                <TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                <TextBlock Text="{Binding Text}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
             </StackPanel>
         </DataTemplate>
     </phone:PhoneApplicationPage.Resources>

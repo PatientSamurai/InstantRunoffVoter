@@ -10,75 +10,49 @@ using System.Windows.Media.Animation;
 
 namespace InstantRunoffVoter.ViewModels
 {
+    /// <summary>
+    /// Class representing a simple value that can be displayed in UI.
+    /// </summary>
     public class ItemViewModel : INotifyPropertyChanged
     {
-        private string _lineOne;
         /// <summary>
-        /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
+        /// The text representing this item.
+        /// </summary>
+        private string text;
+
+        /// <summary>
+        /// Gets or sets the text for this item.
         /// </summary>
         /// <returns></returns>
-        public string LineOne
+        public string Text
         {
             get
             {
-                return _lineOne;
+                return this.text;
             }
+
             set
             {
-                if (value != _lineOne)
+                if (value != this.text)
                 {
-                    _lineOne = value;
-                    NotifyPropertyChanged("LineOne");
+                    this.text = value;
+                    NotifyPropertyChanged("Text");
                 }
             }
         }
 
-        private string _lineTwo;
         /// <summary>
-        /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
+        /// Event that is raised whenever a property on this object has changed.
         /// </summary>
-        /// <returns></returns>
-        public string LineTwo
-        {
-            get
-            {
-                return _lineTwo;
-            }
-            set
-            {
-                if (value != _lineTwo)
-                {
-                    _lineTwo = value;
-                    NotifyPropertyChanged("LineTwo");
-                }
-            }
-        }
-
-        private string _lineThree;
-        /// <summary>
-        /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
-        /// </summary>
-        /// <returns></returns>
-        public string LineThree
-        {
-            get
-            {
-                return _lineThree;
-            }
-            set
-            {
-                if (value != _lineThree)
-                {
-                    _lineThree = value;
-                    NotifyPropertyChanged("LineThree");
-                }
-            }
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Raises the property changed event for the given property.
+        /// </summary>
+        /// <param name="propertyName">The name of the property that has changed.</param>
         private void NotifyPropertyChanged(String propertyName)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
+            PropertyChangedEventHandler handler = this.PropertyChanged;
             if (null != handler)
             {
                 handler(this, new PropertyChangedEventArgs(propertyName));

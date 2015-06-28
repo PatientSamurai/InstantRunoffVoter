@@ -1,0 +1,17 @@
+﻿<vm:VotingPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:InstantRunoffVoter.ViewModels"
+    PageTitle="Matt V">
+
+    <vm:VotingPageViewModel.Candidates>
+        <vm:ItemViewModel Text="Board games"/>
+        <vm:ItemViewModel Text="Minecraft"/>
+        <vm:ItemViewModel Text="Starcraft 2"/>
+        <vm:ItemViewModel Text="Go Karts"/>
+        <vm:ItemViewModel Text="Super Smash Brothers"/>
+        <vm:ItemViewModel Text="Mario Kart"/>
+        <vm:ItemViewModel Text="Spy Party"/>
+    </vm:VotingPageViewModel.Candidates>
+
+</vm:VotingPageViewModel>

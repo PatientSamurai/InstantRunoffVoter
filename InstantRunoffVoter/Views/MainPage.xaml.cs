@@ -71,7 +71,24 @@ namespace InstantRunoffVoter.Views
         /// </summary>
         private void ButtonStartVote_Click(object sender, EventArgs e)
         {
+            string voters = string.Join("&", this.viewModel.SelectedVoters.Select(
+                voter =>
+                {
+                    return HttpUtility.UrlEncode(voter.Text);
+                }));
 
+            string candidates = string.Join("&", this.viewModel.SelectedCandidates.Select(
+                candidate =>
+                {
+                    return HttpUtility.UrlEncode(candidate.Text);
+                }));
+
+            NavigationService.Navigate(new Uri(string.Format(
+                "/Views/VotingPage.xaml?{0}={1}&{2}={3}",
+                VotingPage.VotersQueryStringKey,
+                HttpUtility.UrlEncode(voters),
+                VotingPage.CandidatesQueryStringKey,
+                HttpUtility.UrlEncode(candidates)), UriKind.Relative));
         }
 
         /// <summary>

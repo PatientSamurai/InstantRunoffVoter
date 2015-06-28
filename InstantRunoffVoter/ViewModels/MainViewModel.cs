@@ -75,22 +75,22 @@ namespace InstantRunoffVoter.ViewModels
         public void LoadData()
         {
             // Sample data; replace with real data
-            this.Voters.Add(new ItemViewModel() { LineOne = "Matt V" });
-            this.Voters.Add(new ItemViewModel() { LineOne = "Mallory" });
-            this.Voters.Add(new ItemViewModel() { LineOne = "Ryan" });
-            this.Voters.Add(new ItemViewModel() { LineOne = "Sarah T" });
-            this.Voters.Add(new ItemViewModel() { LineOne = "Andrew" });
-            this.Voters.Add(new ItemViewModel() { LineOne = "Mary" });
-            this.Voters.Add(new ItemViewModel() { LineOne = "Matt L" });
-            this.Voters.Add(new ItemViewModel() { LineOne = "Sarah V" });
+            this.Voters.Add(new ItemViewModel() { Text = "Matt V" });
+            this.Voters.Add(new ItemViewModel() { Text = "Mallory" });
+            this.Voters.Add(new ItemViewModel() { Text = "Ryan" });
+            this.Voters.Add(new ItemViewModel() { Text = "Sarah T" });
+            this.Voters.Add(new ItemViewModel() { Text = "Andrew" });
+            this.Voters.Add(new ItemViewModel() { Text = "Mary" });
+            this.Voters.Add(new ItemViewModel() { Text = "Matt L" });
+            this.Voters.Add(new ItemViewModel() { Text = "Sarah V" });
 
-            this.Candidates.Add(new ItemViewModel() { LineOne = "Board games" });
-            this.Candidates.Add(new ItemViewModel() { LineOne = "Minecraft" });
-            this.Candidates.Add(new ItemViewModel() { LineOne = "Starcraft 2" });
-            this.Candidates.Add(new ItemViewModel() { LineOne = "Go Karts" });
-            this.Candidates.Add(new ItemViewModel() { LineOne = "Super Smash Brothers" });
-            this.Candidates.Add(new ItemViewModel() { LineOne = "Mario Kart" });
-            this.Candidates.Add(new ItemViewModel() { LineOne = "Spy Party" });
+            this.Candidates.Add(new ItemViewModel() { Text = "Board games" });
+            this.Candidates.Add(new ItemViewModel() { Text = "Minecraft" });
+            this.Candidates.Add(new ItemViewModel() { Text = "Starcraft 2" });
+            this.Candidates.Add(new ItemViewModel() { Text = "Go Karts" });
+            this.Candidates.Add(new ItemViewModel() { Text = "Super Smash Brothers" });
+            this.Candidates.Add(new ItemViewModel() { Text = "Mario Kart" });
+            this.Candidates.Add(new ItemViewModel() { Text = "Spy Party" });
 
             this.IsDataLoaded = true;
         }
@@ -166,7 +166,7 @@ namespace InstantRunoffVoter.ViewModels
         /// <param name="value">The value of the new item.</param>
         public void AddEntry(string target, string value)
         {
-            var newItem = new ItemViewModel() { LineOne = value };
+            var newItem = new ItemViewModel() { Text = value };
             switch (target)
             {
                 case MainViewModel.VotersTargetConstant:

@@ -70,6 +70,24 @@ namespace InstantRunoffVoter.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to skip.
+        /// </summary>
+        public static string AppBarButtonSkipText {
+            get {
+                return ResourceManager.GetString("AppBarButtonSkipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to submit.
+        /// </summary>
+        public static string AppBarButtonSubmitVoteText {
+            get {
+                return ResourceManager.GetString("AppBarButtonSubmitVoteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to add.
         /// </summary>
         public static string AppBarButtonText {

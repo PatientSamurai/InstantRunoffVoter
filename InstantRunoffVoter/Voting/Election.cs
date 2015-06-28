@@ -102,6 +102,17 @@ namespace InstantRunoffVoter.Voting
         }
 
         /// <summary>
+        /// Gets whether this election has been completed.
+        /// </summary>
+        public bool IsElectionDone
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(this.winner);
+            }
+        }
+
+        /// <summary>
         /// Gets the winner of this election.
         /// </summary>
         public string Winner
@@ -179,7 +190,8 @@ namespace InstantRunoffVoter.Voting
         /// Stores the preferences of the current voter.
         /// </summary>
         /// <param name="voterPreferences">The ordered preference list for the voter.</param>
-        public void AddBallot(IEnumerable<string> voterPreferences)
+        /// <returns>True if the election is complete.</returns>
+        public bool AddBallot(IEnumerable<string> voterPreferences)
         {
             if (this.votersWithoutVotes.Count == 0)
             {
@@ -203,7 +215,10 @@ namespace InstantRunoffVoter.Voting
             if (this.votersWithoutVotes.Count == 0)
             {
                 this.winner = this.ComputerWinner();
+                return true;
             }
+
+            return false;
         }
 
         private string ComputerWinner()

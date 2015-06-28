@@ -152,4 +152,10 @@
   <data name="AppBarButtonVoteText" xml:space="preserve">
     <value>vote</value>
   </data>
+  <data name="AppBarButtonSkipText" xml:space="preserve">
+    <value>skip</value>
+  </data>
+  <data name="AppBarButtonSubmitVoteText" xml:space="preserve">
+    <value>submit</value>
+  </data>
 </root>

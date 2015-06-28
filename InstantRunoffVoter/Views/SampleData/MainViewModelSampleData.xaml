@@ -4,24 +4,24 @@
     xmlns:vm="clr-namespace:InstantRunoffVoter.ViewModels">
 
     <vm:MainViewModel.Voters>
-        <vm:ItemViewModel LineOne="Matt V"/>
-        <vm:ItemViewModel LineOne="Mallory"/>
-        <vm:ItemViewModel LineOne="Ryan"/>
-        <vm:ItemViewModel LineOne="Sarah T"/>
-        <vm:ItemViewModel LineOne="Andrew"/>
-        <vm:ItemViewModel LineOne="Mary"/>
-        <vm:ItemViewModel LineOne="Matt L"/>
-        <vm:ItemViewModel LineOne="Sarah V"/>
+        <vm:ItemViewModel Text="Matt V"/>
+        <vm:ItemViewModel Text="Mallory"/>
+        <vm:ItemViewModel Text="Ryan"/>
+        <vm:ItemViewModel Text="Sarah T"/>
+        <vm:ItemViewModel Text="Andrew"/>
+        <vm:ItemViewModel Text="Mary"/>
+        <vm:ItemViewModel Text="Matt L"/>
+        <vm:ItemViewModel Text="Sarah V"/>
     </vm:MainViewModel.Voters>
 
     <vm:MainViewModel.Candidates>
-        <vm:ItemViewModel LineOne="Board games"/>
-        <vm:ItemViewModel LineOne="Minecraft"/>
-        <vm:ItemViewModel LineOne="Starcraft 2"/>
-        <vm:ItemViewModel LineOne="Go Karts"/>
-        <vm:ItemViewModel LineOne="Super Smash Brothers"/>
-        <vm:ItemViewModel LineOne="Mario Kart"/>
-        <vm:ItemViewModel LineOne="Spy Party"/>
+        <vm:ItemViewModel Text="Board games"/>
+        <vm:ItemViewModel Text="Minecraft"/>
+        <vm:ItemViewModel Text="Starcraft 2"/>
+        <vm:ItemViewModel Text="Go Karts"/>
+        <vm:ItemViewModel Text="Super Smash Brothers"/>
+        <vm:ItemViewModel Text="Mario Kart"/>
+        <vm:ItemViewModel Text="Spy Party"/>
     </vm:MainViewModel.Candidates>
 
 </vm:MainViewModel>
